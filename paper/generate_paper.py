@@ -457,19 +457,16 @@ new_body(
 
 new_heading_2('5.2. Infection Dynamics Over Time')
 new_body(
-    "Figure 1 illustrates the time-series evolution of infected nodes across all four scenarios. "
-    "The baseline scenario exhibits a rapid initial rise in infections, peaking around step 60, "
-    "followed by a gradual decline as natural recovery mechanisms take effect. Both intervention "
-    "scenarios delay the infection peak and reduce its magnitude. The combined intervention "
-    "flattens the infection curve most substantially, maintaining consistently lower infection "
-    "levels throughout the simulation duration."
+    "Figure 1 illustrates the time-series evolution of infected nodes and mean vulnerability "
+    "across all four scenarios. The baseline scenario exhibits a rapid initial rise in "
+    "infections, peaking around step 60, followed by a gradual decline as natural recovery "
+    "mechanisms take effect. Both intervention scenarios delay the infection peak and reduce "
+    "its magnitude. The combined intervention flattens the infection curve most substantially, "
+    "maintaining consistently lower infection levels throughout the simulation duration."
 )
 
-# Figure placeholder
 fig_para = new_para('', WD_ALIGN_PARAGRAPH.CENTER, before=6, after=6)
-add_text(fig_para, '[Figure 1. Time-series of infected nodes across scenarios - see fig_timeseries.png]',
-         'Times New Roman', 10, italic=True)
-add_figure_caption('Figure 1. Time-series of infected nodes across four scenarios over 200 time steps.')
+add_text(fig_para, '[Figure 1. Time-series]', 'Times New Roman', 10, italic=True)
 
 new_heading_2('5.3. Vulnerability Evolution')
 new_body(
@@ -478,10 +475,48 @@ new_body(
     "balance between natural vulnerability decay and external threat introduction. Patch "
     "management reduces mean vulnerability to 0.38 (26.9% reduction), while training achieves "
     "0.44 (15.4% reduction). The combined approach achieves the lowest mean vulnerability of "
-    "0.31 (40.4% reduction), confirming the compounding effect of layered defenses."
+    "0.31 (40.4% reduction), confirming the compounding effect of layered defenses. Figure 1(b) "
+    "visualizes these vulnerability trajectories over the full simulation period."
 )
 
-new_heading_2('5.4. Statistical Significance')
+new_heading_2('5.4. Intervention Effectiveness')
+new_body(
+    "Figure 2 presents a comparative analysis of intervention effectiveness. The box plot in "
+    "panel (a) shows the distribution of peak infection counts across 30 Monte Carlo runs for "
+    "each scenario. The combined intervention achieves the lowest median and narrowest "
+    "distribution, indicating both superior and more consistent performance. The bar chart in "
+    "panel (b) shows the mean infection reduction relative to baseline, with the combined "
+    "approach achieving 33.3% reduction compared to 20.0% for patch-only and 13.3% for "
+    "training-only."
+)
+
+fig_para2 = new_para('', WD_ALIGN_PARAGRAPH.CENTER, before=6, after=6)
+add_text(fig_para2, '[Figure 2. Effectiveness]', 'Times New Roman', 10, italic=True)
+
+new_heading_2('5.5. State Distribution Analysis')
+new_body(
+    "Figure 3 shows the distribution of node states over time for each scenario using stacked "
+    "area charts. In the baseline scenario, infected nodes (red) occupy a substantial portion "
+    "of the network throughout the simulation. Intervention scenarios show progressively larger "
+    "patched (blue) and recovered (green) proportions, with the combined scenario exhibiting "
+    "the most favorable state distribution, where protected states dominate from early time steps."
+)
+
+fig_para3 = new_para('', WD_ALIGN_PARAGRAPH.CENTER, before=6, after=6)
+add_text(fig_para3, '[Figure 3. State distribution]', 'Times New Roman', 10, italic=True)
+
+new_heading_2('5.6. Network Topology Visualization')
+new_body(
+    "Figure 4 presents network topology snapshots at multiple time points during the baseline "
+    "simulation, showing the spatial progression of infections through the network graph. The "
+    "visualization illustrates how infections preferentially spread through highly connected hub "
+    "nodes, and how interventions limit this propagation by reducing node vulnerability."
+)
+
+fig_para4 = new_para('', WD_ALIGN_PARAGRAPH.CENTER, before=6, after=6)
+add_text(fig_para4, '[Figure 4. Network snapshot]', 'Times New Roman', 10, italic=True)
+
+new_heading_2('5.7. Statistical Significance')
 new_body(
     "To validate that the observed differences between scenarios are not due to random "
     "variation, Mann-Whitney U tests were performed on pairwise comparisons of peak infection "
@@ -514,18 +549,18 @@ for r, row_data in enumerate(t3_data, 1):
         add_text(p, val, 'Times New Roman', 10)
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
-new_heading_2('5.5. Visualization of Network Topology')
+new_heading_2('5.8. Correlation and Vulnerability Heatmaps')
 new_body(
-    "Figure 2 presents network topology snapshots at multiple time points during the simulation, "
-    "showing the spatial progression of infections through the network graph. The visualization "
-    "illustrates how infections preferentially spread through highly connected hub nodes, and "
-    "how interventions limit this propagation by reducing node vulnerability."
+    "Figure 5 presents two complementary heatmap analyses. Panel (a) shows the correlation "
+    "matrix of all simulation variables, revealing expected relationships: infection counts "
+    "are positively correlated with vulnerability and negatively correlated with patched and "
+    "recovered state counts. Panel (b) displays the evolution of mean vulnerability across "
+    "scenarios, sampled every 10 time steps, providing a granular view of how each intervention "
+    "strategy affects the network security posture over time."
 )
 
-fig_para2 = new_para('', WD_ALIGN_PARAGRAPH.CENTER, before=6, after=6)
-add_text(fig_para2, '[Figure 2. Network topology snapshots - see fig_network_snapshot.png]',
-         'Times New Roman', 10, italic=True)
-add_figure_caption('Figure 2. Network topology showing infection state at selected time steps.')
+fig_para5 = new_para('', WD_ALIGN_PARAGRAPH.CENTER, before=6, after=6)
+add_text(fig_para5, '[Figure 5. Heatmaps]', 'Times New Roman', 10, italic=True)
 
 # ══════════════════════════════════════════════════════════════
 # 6. DISCUSSION
