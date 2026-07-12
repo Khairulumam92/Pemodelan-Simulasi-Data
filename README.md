@@ -143,6 +143,10 @@ streamlit run src/scripts/streamlit_dashboard.py --server.port 8502
 - **Pandas/NumPy**: Data processing
 - **SciPy**: Mann-Whitney U statistical test
 
+## Kesimpulan
+
+Penelitian ini berhasil mengembangkan model simulasi berbasis agen (Agent-Based Modeling) untuk menganalisis propagasi ancaman siber pada jaringan server lokal dengan dua strategi intervensi utama, yaitu patch management dan user training. Melalui simulasi Monte Carlo sebanyak 30 kali ulangan pada masing-masing dari empat skenario yang diuji, diperoleh hasil bahwa intervensi patch management mampu mereduksi puncak infeksi sebesar 20.0%, intervensi user training mereduksi sebesar 13.3%, dan kombinasi keduanya memberikan reduksi paling signifikan yaitu 33.3% dibandingkan dengan skenario baseline tanpa intervensi. Seluruh perbedaan antar skenario terkonfirmasi signifikan secara statistik melalui uji Mann-Whitney U dengan nilai p < 0.001. Temuan ini membuktikan bahwa strategi keamanan berlapis (layered defense) yang menggabungkan intervensi teknis dan human-centered memberikan perlindungan yang jauh lebih efektif dibandingkan menerapkan salah satu intervensi secara terpisah. Selain itu, dashboard interaktif berbasis Streamlit yang dikembangkan memungkinkan eksplorasi parameter secara real-time dan visualisasi hasil yang komprehensif, sehingga dapat menjadi alat bantu pengambilan keputusan dalam alokasi sumber daya keamanan siber di lingkungan organisasi.
+
 ## Referensi
 
 - Mesa Framework: https://mesa.readthedocs.io/

@@ -186,8 +186,7 @@ add_bullet_text(slide, Inches(0.6), Inches(1.3), Inches(12), Inches(5.5), [
     '6.  Penjelasan Source Code (Parameter, Agent, Model, Runner)',
     '7.  Hasil Simulasi & Visualisasi',
     '8.  Dashboard Streamlit (Cara Kerja & Fitur)',
-    '9.  Publikasi Jurnal',
-    '10. Kesimpulan',
+    '9.  Kesimpulan',
 ], font_size=18, color=DARK_TEXT)
 
 # ══════════════════════════════════════════════════════════════
@@ -716,101 +715,32 @@ with tab5:
 add_code_block(slide, Inches(0.3), Inches(1.1), Inches(12.5), Inches(6.0), code, 11)
 
 # ══════════════════════════════════════════════════════════════
-# SLIDE 30: SECTION - JOURNAL
-# ══════════════════════════════════════════════════════════════
-section_slide('Publikasi Jurnal')
-
-# ══════════════════════════════════════════════════════════════
-# SLIDE 31: JOURNAL DETAILS
-# ══════════════════════════════════════════════════════════════
-slide = content_slide('Paper Jurnal')
-add_two_column(slide,
-    'Format & Template',
-    [
-        'Jurnal: JJCIT (Jordanian Journal of Computers\n  and Information Technology)',
-        'Format: IEEE-style references',
-        'Template: MS Word .doc JJCIT',
-        'Maks: 16 halaman',
-        'Bahasa: English',
-    ],
-    'Konten Paper',
-    [
-        '7 sections: Introduction s/d Conclusion',
-        '5 figure publikasi (300 DPI, print-ready)',
-        '3 tabel (parameter, hasil, statistik)',
-        '18 referensi (2022-2025, real & terverifikasi)',
-        'Lokasi: paper/manuscript/paper_jjcit.docx',
-    ]
-)
-
-# ══════════════════════════════════════════════════════════════
-# SLIDE 32: JOURNAL SECTIONS
-# ══════════════════════════════════════════════════════════════
-slide = content_slide('Struktur Paper Jurnal')
-sections = [
-    '1. Introduction - Latar belakang, motivasi, kontribusi',
-    '2. Related Work - ABM cybersecurity, patch mgmt, training, SIR models',
-    '3. Methodology - Model ABM, state machine, vulnerability equation',
-    '4. Experimental Setup - 4 skenario, parameter table',
-    '5. Results and Analysis - 5 figures + 3 tables + Mann-Whitney',
-    '6. Discussion - Implikasi, limitasi, future work',
-    '7. Conclusion - 4 temuan utama',
-]
-for i, sec in enumerate(sections):
-    y = Inches(1.4) + Inches(i * 0.7)
-    add_shape(slide, Inches(0.6), y, Inches(12), Inches(0.55), RGBColor(0xf8, 0xf9, 0xfa))
-    add_shape(slide, Inches(0.6), y, Inches(0.06), Inches(0.55), ACCENT)
-    add_textbox(slide, Inches(0.9), y + Inches(0.08), Inches(11.5), Inches(0.4),
-                sec, font_size=15, color=DARK_TEXT)
-
-# ══════════════════════════════════════════════════════════════
-# SLIDE 33: REFERENCES
-# ══════════════════════════════════════════════════════════════
-slide = content_slide('Referensi Kunci (2022-2025)')
-refs = [
-    '[1] Chernikova et al. (2023) - Epidemiological malware models. Applied Network Science.',
-    '[3] Aftabi et al. (2025) - ABM framework for security management. Expert Systems with Applications.',
-    '[5] Do Xuan et al. (2025) - Two-stage APT malware propagation. Neural Computing & Applications.',
-    '[12] Woods & Seymour (2024) - Meta-review of security control effectiveness. J. Cyber Policy.',
-    '[15] Prummer et al. (2024) - Systematic review of cybersecurity training. Computers & Security.',
-    '[18] ter Hoeven et al. (2025) - Mesa 3: ABM with Python. JOSS.',
-]
-for i, ref in enumerate(refs):
-    y = Inches(1.4) + Inches(i * 0.75)
-    add_shape(slide, Inches(0.6), y, Inches(12), Inches(0.6), RGBColor(0xf8, 0xf9, 0xfa))
-    add_textbox(slide, Inches(0.8), y + Inches(0.08), Inches(11.5), Inches(0.5),
-                ref, font_size=13, color=DARK_TEXT)
-
-add_textbox(slide, Inches(0.6), Inches(6.2), Inches(12), Inches(1),
-            'Total: 18 referensi dari 2022-2025 | Semua real dengan DOI terverifikasi',
-            font_size=14, color=MED_BLUE, bold=True)
-
-# ══════════════════════════════════════════════════════════════
-# SLIDE 34: SECTION - CONCLUSION
-# ══════════════════════════════════════════════════════════════
-section_slide('Kesimpulan')
-
-# ══════════════════════════════════════════════════════════════
-# SLIDE 35: CONCLUSION
+# SLIDE 30: CONCLUSION PARAGRAPH
 # ══════════════════════════════════════════════════════════════
 slide = content_slide('Kesimpulan')
-conclusions = [
-    '1. Patch Management reduksi peak infection 20.0% vs Baseline',
-    '2. User Training reduksi peak infection 13.3% vs Baseline',
-    '3. Combined Intervention reduksi 33.3% - terbaik & sinergis',
-    '4. Semua pairwise signifikan (Mann-Whitney, p < 0.001)',
-    '5. Dashboard interaktif untuk eksplorasi parameter real-time',
-    '6. Paper jurnal siap submit (format JJCIT, 18 referensi)',
-]
-for i, c in enumerate(conclusions):
-    y = Inches(1.5) + Inches(i * 0.8)
-    add_shape(slide, Inches(0.6), y, Inches(12), Inches(0.6), RGBColor(0xf8, 0xf9, 0xfa))
-    add_shape(slide, Inches(0.6), y, Inches(0.06), Inches(0.6), GREEN)
-    add_textbox(slide, Inches(0.9), y + Inches(0.1), Inches(11.5), Inches(0.4),
-                c, font_size=17, color=DARK_TEXT)
+conclusion_text = (
+    "Penelitian ini berhasil mengembangkan model simulasi berbasis agen (Agent-Based Modeling) "
+    "untuk menganalisis propagasi ancaman siber pada jaringan server lokal dengan dua strategi "
+    "intervensi utama, yaitu patch management dan user training. Melalui simulasi Monte Carlo "
+    "sebanyak 30 kali ulangan pada masing-masing dari empat skenario yang diuji, diperoleh hasil "
+    "bahwa intervensi patch management mampu mereduksi puncak infeksi sebesar 20.0%, intervensi "
+    "user training mereduksi sebesar 13.3%, dan kombinasi keduanya memberikan reduksi paling "
+    "signifikan yaitu 33.3% dibandingkan dengan skenario baseline tanpa intervensi. Seluruh "
+    "perbedaan antar skenario terkonfirmasi signifikan secara statistik melalui uji Mann-Whitney U "
+    "dengan nilai p < 0.001. Temuan ini membuktikan bahwa strategi keamanan berlapis (layered "
+    "defense) yang menggabungkan intervensi teknis dan human-centered memberikan perlindungan "
+    "yang jauh lebih efektif dibandingkan menerapkan salah satu intervensi secara terpisah. "
+    "Selain itu, dashboard interaktif berbasis Streamlit yang dikembangkan memungkinkan eksplorasi "
+    "parameter secara real-time dan visualisasi hasil yang komprehensif, sehingga dapat menjadi "
+    "alat bantu pengambilan keputusan dalam alokasi sumber daya keamanan siber di lingkungan "
+    "organisasi."
+)
+
+add_textbox(slide, Inches(0.6), Inches(1.2), Inches(12), Inches(5.5),
+            conclusion_text, font_size=16, color=DARK_TEXT)
 
 # ══════════════════════════════════════════════════════════════
-# SLIDE 36: THANK YOU
+# SLIDE 31: THANK YOU
 # ══════════════════════════════════════════════════════════════
 slide = prs.slides.add_slide(prs.slide_layouts[6])
 add_bg(slide, DARK_BLUE)
