@@ -1,0 +1,4 @@
+﻿Skenario Uji,Mean Baseline,Mean Skenario,U Statistic,p-value,Signifikansi,Cohen's d
+Patch Management Only,7.47,6.37,615.5,0.0063,**,0.729
+User Training Only,7.47,7.13,498.5,0.2351,ns,0.2
+Combined Intervention,7.47,5.0,855.0,0.0,***,2.043

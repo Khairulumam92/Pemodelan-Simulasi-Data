@@ -1,0 +1,117 @@
+Cyber Threat Simulator - Struktur Folder
+══════════════════════════════════════════════════════════════
+
+Tugas Akhir/
+│
+├── 📄 README.md                    ← Dokumentasi utama proyek
+├── 📄 requirements.txt              ← Daftar dependencies Python
+├── 🚀 run_dashboard.bat            ← Script untuk jalankan dashboard (Windows)
+├── 🚀 run_dashboard.sh             ← Script untuk jalankan dashboard (Linux/Mac)
+├── 📋 .gitignore                   ← Konfigurasi Git
+│
+├── 📁 src/                         ← Source code
+│   ├── 📁 notebooks/
+│   │   └── 📓 simulation.ipynb     ← Core ABM simulation engine
+│   └── 📁 scripts/
+│       └── 🐍 streamlit_dashboard.py ← Interactive dashboard
+│
+├── 📁 data/                        ← Data files
+│   ├── 📁 raw/                    ← Raw simulation data
+│   │   ├── data_raw_simulasi.csv
+│   │   └── data_ringkasan_skenario.csv
+│   └── 📁 processed/              ← Processed/analyzed data
+│       └── data_analisis_statistik.csv
+│
+├── 📁 results/                     ← Output results
+│   └── 📁 figures/                ← Generated visualizations
+│       ├── fig_timeseries.png
+│       ├── fig_state_distribution.png
+│       ├── fig_network_snapshot.png
+│       ├── fig_efektivitas.png
+│       └── fig_heatmap.png
+│
+├── 📁 docs/                        ← Documentation
+│   └── SETUP.md                    ← Installation guide
+│
+└── 📁 assets/                      ← Asset files
+
+
+═══════════════════════════════════════════════════════════════
+CARA MENGGUNAKAN:
+═══════════════════════════════════════════════════════════════
+
+1. SETUP (Pertama kali saja)
+   $ pip install -r requirements.txt
+
+2. JALANKAN DASHBOARD
+   Windows:  Double-click "run_dashboard.bat"
+   Linux:    bash run_dashboard.sh
+   atau:     streamlit run src/scripts/streamlit_dashboard.py
+
+3. BUKA DI BROWSER
+   http://localhost:8501
+
+4. UNTUK DEVELOPMENT (Edit notebook)
+   $ jupyter notebook src/notebooks/simulation.ipynb
+
+
+═══════════════════════════════════════════════════════════════
+FILE DESCRIPTIONS:
+═══════════════════════════════════════════════════════════════
+
+📄 README.md
+   - Dokumentasi lengkap proyek
+   - Fitur dashboard
+   - Parameter simulasi
+   - Referensi teknologi
+
+📄 requirements.txt
+   - List semua Python packages yang dibutuhkan
+   - Gunakan: pip install -r requirements.txt
+
+🚀 run_dashboard.bat / run_dashboard.sh
+   - Convenience scripts untuk menjalankan dashboard
+   - Bisa dijalankan dari directory manapun
+   - Otomatis membuka di browser (Windows)
+
+📋 .gitignore
+   - Konfigurasi untuk version control (Git)
+   - Excludes cache, virtual environments, logs
+
+📓 simulation.ipynb
+   - Core ABM simulation engine
+   - Semua model logic dan classes
+   - 41 cells untuk full simulation
+
+🐍 streamlit_dashboard.py
+   - Interactive web dashboard
+   - 5 tabs visualisasi
+   - Parameter configuration sidebar
+   - Data export functionality
+
+📁 data/raw/
+   - data_raw_simulasi.csv: 24,000 rows (4 scenarios × 30 runs × 200 steps)
+   - data_ringkasan_skenario.csv: 120 rows (summary per run)
+
+📁 data/processed/
+   - data_analisis_statistik.csv: Aggregated statistics
+
+📁 results/figures/
+   - PNG outputs dari visualisasi simulasi
+   - 5 gambar: timeseries, distribution, network, efficiency, heatmap
+
+📁 docs/
+   - SETUP.md: Panduan instalasi dan troubleshooting
+
+
+═══════════════════════════════════════════════════════════════
+TIPS:
+═══════════════════════════════════════════════════════════════
+
+✓ Gunakan virtual environment (venv) untuk project isolation
+✓ Jalankan "pip install -r requirements.txt" setelah clone
+✓ Dashboard akan auto-reload ketika file diubah
+✓ Ctrl+C di terminal untuk stop dashboard
+✓ Cek docs/SETUP.md jika ada error
+
+═══════════════════════════════════════════════════════════════
