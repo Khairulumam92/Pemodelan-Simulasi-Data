@@ -51,6 +51,6 @@ Thumbs.db
 *.tmp
 *.bak
 
-# Keep data and results directories but ignore large generated files
+# Keep data and figures directories but ignore large generated files
 # data/raw/*.csv kept
-# results/figures/*.png kept
+# figures/*.png kept

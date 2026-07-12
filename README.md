@@ -1,74 +1,107 @@
 # Cyber Threat Simulator - Agent-Based Modeling
 
-Simulasi penyebaran ancaman siber melalui jaringan menggunakan Agent-Based Modeling (ABM) dengan framework Mesa.
+Simulasi penyebaran ancaman siber melalui jaringan menggunakan Agent-Based Modeling (ABM) dengan framework Mesa. Studi kasus efektivitas intervensi Patch Management dan User Training terhadap tingkat kerentanan server.
 
-##  Struktur Proyek
+## Struktur Proyek
 
 ```
 Tugas Akhir/
 ├── src/                          # Source code
+│   ├── __init__.py
 │   ├── notebooks/
 │   │   └── simulation.ipynb      # Jupyter notebook - Core ABM simulation engine
 │   └── scripts/
 │       └── streamlit_dashboard.py # Interactive Streamlit dashboard
+├── scripts/                      # Launcher scripts
+│   ├── run_dashboard.bat         # Windows launcher
+│   └── run_dashboard.sh          # Linux/macOS launcher
 ├── data/                         # Data files
 │   ├── raw/
-│   │   ├── data_raw_simulasi.csv
-│   │   └── data_ringkasan_skenario.csv
+│   │   ├── data_raw_simulasi.csv      # Raw simulation output (24,000 rows)
+│   │   └── data_ringkasan_skenario.csv # Summary per run (120 rows)
 │   └── processed/
-│       └── data_analisis_statistik.csv
-├── results/                      # Output results
-│   └── figures/
-│       ├── fig_timeseries.png
-│       ├── fig_state_distribution.png
-│       ├── fig_network_snapshot.png
-│       ├── fig_efektivitas.png
-│       └── fig_heatmap.png
-├── assets/                       # Asset files
-├── docs/                         # Documentation
-└── README.md                     # File ini
+│       └── data_analisis_statistik.csv # Aggregated statistics
+├── figures/                      # Generated visualizations
+│   ├── fig_timeseries.png
+│   ├── fig_state_distribution.png
+│   ├── fig_network_snapshot.png
+│   ├── fig_efektivitas.png
+│   └── fig_heatmap.png
+├── requirements.txt
+└── README.md
 ```
 
-##  Cara Menjalankan
+## Setup
 
-### 1. Setup Environment
+### Prerequisites
+- Python 3.10+ (recommended 3.13)
+- pip
+
+### Virtual Environment Setup
+
+**Windows:**
 ```bash
-pip install numpy pandas networkx matplotlib seaborn tqdm scipy mesa streamlit
+python -m venv venv
+venv\Scripts\activate
 ```
 
-### 2. Jalankan Notebook Simulasi
+**Linux/macOS:**
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Verify Installation
+```bash
+python -c "import mesa, streamlit, pandas; print('OK')"
+```
+
+## Menjalankan
+
+### Dashboard Streamlit
+
+**Windows:** Double-click `scripts/run_dashboard.bat`
+
+**Linux/macOS:** `bash scripts/run_dashboard.sh`
+
+**Manual:**
+```bash
+streamlit run src/scripts/streamlit_dashboard.py
+```
+
+Dashboard akan terbuka di http://localhost:8501
+
+### Notebook Simulasi
 ```bash
 jupyter notebook src/notebooks/simulation.ipynb
 ```
 
-### 3. Jalankan Dashboard Streamlit
+### Port Conflict
 ```bash
-streamlit run src/scripts/streamlit_dashboard.py
+streamlit run src/scripts/streamlit_dashboard.py --server.port 8502
 ```
-Dashboard akan terbuka di: http://localhost:8501
 
-##  Fitur Dashboard
+## Fitur Dashboard
 
 ### Sidebar Configuration
-- **JARINGAN**: Konfigurasi topologi (nodes, connections, initial infections)
-- **DINAMIKA PENYEBARAN**: Parameter infeksi, recovery, threat eksternal
-- **INTERVENSI**: Strategi patch & training untuk mitigasi
+- **JARINGAN**: Topologi (nodes, connections, initial infections)
+- **DINAMIKA PENYEBARAN**: Infeksi, recovery, threat eksternal
+- **INTERVENSI**: Patch & training untuk mitigasi
 - **EKSEKUSI**: Durasi simulasi, jumlah runs, random seed
 
 ### Visualisasi (5 Tabs)
-1. **Time-Series**: Tracking infeksi & kerentanan over time
-2. **Distribusi**: Histogram puncak infeksi dari all Monte Carlo runs
+1. **Time-Series**: Infeksi & kerentanan over time
+2. **Distribusi**: Histogram puncak infeksi Monte Carlo runs
 3. **Topologi Jaringan**: Network visualization di 4 time points
 4. **Heatmap**: Evolusi kerentanan per run
 5. **Data Raw**: Tabel lengkap dengan download CSV
 
-##  Design Features
-- **Dark Theme**: Warna profesional yang carefully curated
-- **Color Scheme**: 14 warna distinct tanpa overlap
-- **Responsive**: Desain yang adaptif dan interaktif
-- **Data Export**: Download hasil simulasi dalam format CSV
-
-##  Parameter Simulasi
+## Parameter Simulasi
 
 | Parameter | Range | Default | Deskripsi |
 |-----------|-------|---------|-----------|
@@ -82,23 +115,7 @@ Dashboard akan terbuka di: http://localhost:8501
 | N_STEPS | 50-500 | 200 | Durasi simulasi (steps) |
 | N_RUNS | 1-30 | 5 | Monte Carlo runs |
 
-##  Output Data
-
-### raw/
-- `data_raw_simulasi.csv`: Data mentah setiap step dari setiap run (24,000 rows)
-- `data_ringkasan_skenario.csv`: Ringkasan per run (120 rows)
-
-### processed/
-- `data_analisis_statistik.csv`: Statistik agregat per skenario
-
-### figures/
-- Time-series plot
-- State distribution
-- Network snapshots
-- Efektivitas intervensi
-- Heatmap kerentanan
-
-##  Model Architecture
+## Model Arsitektur
 
 **NodeState Enum**
 - SUSCEPTIBLE: Rentan terhadap infeksi
@@ -107,12 +124,12 @@ Dashboard akan terbuka di: http://localhost:8501
 - RECOVERED: Pulih dari infeksi
 
 **Agent Behavior**
-- Vulnerability Evolution: V(t+1) = V(t) × (1 - α·PL) × (1 - τ·UA) + ε
-- Infection Logic: prob = β × V × (1-UA) × prop_infected_neighbors
-- Recovery: Natural recovery dengan rate γ
+- Vulnerability Evolution: V(t+1) = V(t) x (1 - alpha-PL) x (1 - tau-UA) + epsilon
+- Infection Logic: prob = beta x V x (1-UA) x prop_infected_neighbors
+- Recovery: Natural recovery dengan rate gamma
 - Interventions: Patch & User Training
 
-##  Teknologi
+## Teknologi
 
 - **Python 3.13**
 - **Mesa**: Agent-Based Modeling framework
@@ -120,8 +137,9 @@ Dashboard akan terbuka di: http://localhost:8501
 - **NetworkX**: Network topology
 - **Matplotlib/Seaborn**: Visualisasi data
 - **Pandas/NumPy**: Data processing
+- **SciPy**: Mann-Whitney U statistical test
 
-##  Referensi
+## Referensi
 
 - Mesa Framework: https://mesa.readthedocs.io/
 - Streamlit Docs: https://docs.streamlit.io/
@@ -129,5 +147,5 @@ Dashboard akan terbuka di: http://localhost:8501
 
 ---
 
-**Tugas Akhir - Semester 6**  
-Pemodelan Sistem | 2026
+**Tugas Akhir - Semester 6**
+Pemodelan dan Simulasi | 2026
