@@ -1,6 +1,6 @@
 # Quick Reference Guide
 
-## 🚀 Quick Start (3 Steps)
+##  Quick Start (3 Steps)
 
 ```bash
 # 1. Install dependencies (pertama kali saja)
@@ -13,7 +13,7 @@ streamlit run src/scripts/streamlit_dashboard.py
 http://localhost:8501
 ```
 
-## 📦 Struktur Folder Penjelasan
+##  Struktur Folder Penjelasan
 
 | Folder | Isi | Deskripsi |
 |--------|-----|-----------|
@@ -25,7 +25,7 @@ http://localhost:8501
 | `docs` | `.md` | Dokumentasi (setup guide, etc) |
 | `assets` | Mixed | Asset files |
 
-## 🎮 Menggunakan Dashboard
+##  Menggunakan Dashboard
 
 ### Parameter Sidebar
 1. **JARINGAN** - Network configuration
@@ -55,7 +55,7 @@ http://localhost:8501
 - **Heatmap**: Vulnerability evolution per run
 - **Data Raw**: Full data table + CSV download
 
-## 🔧 Common Commands
+##  Common Commands
 
 ```bash
 # Run with custom port
@@ -77,7 +77,7 @@ pip install --upgrade <package_name>
 # Ctrl+C in terminal
 ```
 
-## 📊 Data Files
+##  Data Files
 
 ### Input/Output Locations
 - **Raw Data**: `data/raw/` (24,000 rows total)
@@ -100,7 +100,7 @@ pip install --upgrade <package_name>
 | Dashboard not loading | Wait 30 seconds, refresh browser |
 | File not found errors | Check you're in root directory |
 
-## 📚 File Descriptions
+##  File Descriptions
 
 | File | Purpose |
 |------|---------|
@@ -112,15 +112,15 @@ pip install --upgrade <package_name>
 | `run_dashboard.sh` | Linux/Mac quick launcher |
 | `docs/SETUP.md` | Detailed setup guide |
 
-## 💾 Saving Your Work
+##  Saving Your Work
 
 ```bash
 # Save data from dashboard
-# → Click "📥 Download CSV" in Data Raw tab
+# → Click " Download CSV" in Data Raw tab
 # → File saved as: cyber_threat_sim_YYYYMMDD_HHMMSS.csv
 ```
 
-## 🔬 Model Parameters
+##  Model Parameters
 
 ### Default Values
 ```python
@@ -141,7 +141,7 @@ Vulnerability: V(t+1) = V(t) × (1 - α×PL) × (1 - τ×UA) + ε
 Infection Probability: p = β × V × (1-UA) × prop_neighbors_infected
 ```
 
-## 🎨 Color Scheme
+##  Color Scheme
 
 | Color | Hex | Usage |
 |-------|-----|-------|
@@ -152,7 +152,7 @@ Infection Probability: p = β × V × (1-UA) × prop_neighbors_infected
 | Amber | #ffa726 | Warning/Vulnerability |
 | Dark | #0a0e27 | Background |
 
-## 📞 Support
+##  Support
 
 For issues:
 1. Check `docs/SETUP.md` for installation help

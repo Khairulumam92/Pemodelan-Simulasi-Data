@@ -301,7 +301,7 @@ def run_single_simulation(model_kwargs, n_steps, progress_placeholder=None):
 
 st.set_page_config(
     page_title="Cyber Threat Simulator Dashboard",
-    page_icon="⚔️",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -432,11 +432,11 @@ st.markdown(f"""
 
 st.sidebar.markdown("""
 <div style='padding: 15px; border-radius: 10px; border: 2px solid #1f77b4; margin-bottom: 20px;'>
-    <h2 style='margin: 0; color: #1f77b4;'>⚙️ KONFIGURASI SIMULASI</h2>
+    <h2 style='margin: 0; color: #1f77b4;'> KONFIGURASI SIMULASI</h2>
 </div>
 """, unsafe_allow_html=True)
 
-with st.sidebar.expander("🌐 JARINGAN", expanded=True):
+with st.sidebar.expander(" JARINGAN", expanded=True):
     st.markdown("""
     <p style='font-size: 12px; color: #999;'>Konfigurasi topologi jaringan server</p>
     """, unsafe_allow_html=True)
@@ -459,7 +459,7 @@ with st.sidebar.expander("🌐 JARINGAN", expanded=True):
         help="Jumlah node yang terinfeksi di awal simulasi"
     )
 
-with st.sidebar.expander("🔬 DINAMIKA PENYEBARAN", expanded=True):
+with st.sidebar.expander(" DINAMIKA PENYEBARAN", expanded=True):
     st.markdown("""
     <p style='font-size: 12px; color: #999;'>Parameter epidemiologis penyebaran</p>
     """, unsafe_allow_html=True)
@@ -482,7 +482,7 @@ with st.sidebar.expander("🔬 DINAMIKA PENYEBARAN", expanded=True):
         help="Probabilitas serangan eksternal acak"
     )
 
-with st.sidebar.expander("🛠️ INTERVENSI", expanded=True):
+with st.sidebar.expander(" INTERVENSI", expanded=True):
     st.markdown("""
     <p style='font-size: 12px; color: #999;'>Strategi mitigasi keamanan</p>
     """, unsafe_allow_html=True)
@@ -539,7 +539,7 @@ with st.sidebar.expander("🛠️ INTERVENSI", expanded=True):
     else:
         training_interval = 10
 
-with st.sidebar.expander("⏱️ EKSEKUSI", expanded=True):
+with st.sidebar.expander("⏱ EKSEKUSI", expanded=True):
     st.markdown("""
     <p style='font-size: 12px; color: #999;'>Pengaturan jalannya simulasi</p>
     """, unsafe_allow_html=True)
@@ -586,7 +586,7 @@ col1, col2, col3 = st.columns([2, 2, 1.5])
 
 with col3:
     run_button = st.button(
-        "▶️ JALANKAN SIMULASI",
+        "▶ JALANKAN SIMULASI",
         key="run_sim",
         use_container_width=True,
         help="Mulai proses simulasi dengan parameter yang telah dikonfigurasi"
@@ -632,7 +632,7 @@ if run_button or 'simulation_results' in st.session_state:
             status_placeholder.info(f"⏳ Menyelesaikan run {run_id + 1}/{n_runs}...")
         
         st.session_state['simulation_results'] = all_results
-        status_placeholder.success("✅ Simulasi selesai!")
+        status_placeholder.success(" Simulasi selesai!")
         progress_placeholder.empty()
 
 # Tampilkan hasil jika ada
@@ -709,11 +709,11 @@ if 'simulation_results' in st.session_state and st.session_state['simulation_res
     """, unsafe_allow_html=True)
     
     tab1, tab2, tab3, tab4, tab5 = st.tabs([
-        "📉 Time-Series",
-        "📊 Distribusi",
-        "🔗 Topologi Jaringan",
-        "🌡️ Heatmap Kerentanan",
-        "📋 Data Raw"
+        " Time-Series",
+        " Distribusi",
+        " Topologi Jaringan",
+        " Heatmap Kerentanan",
+        " Data Raw"
     ])
     
     # ─────────────────────────────────────────────────────────────────────────
@@ -930,7 +930,7 @@ if 'simulation_results' in st.session_state and st.session_state['simulation_res
         with col_d1:
             csv = combined_df.to_csv(index=False)
             st.download_button(
-                label="📥 Download CSV",
+                label=" Download CSV",
                 data=csv,
                 file_name=f"cyber_threat_sim_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
                 mime="text/csv",

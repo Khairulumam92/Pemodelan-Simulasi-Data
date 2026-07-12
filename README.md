@@ -2,7 +2,7 @@
 
 Simulasi penyebaran ancaman siber melalui jaringan menggunakan Agent-Based Modeling (ABM) dengan framework Mesa.
 
-## 📁 Struktur Proyek
+##  Struktur Proyek
 
 ```
 Tugas Akhir/
@@ -29,7 +29,7 @@ Tugas Akhir/
 └── README.md                     # File ini
 ```
 
-## 🚀 Cara Menjalankan
+##  Cara Menjalankan
 
 ### 1. Setup Environment
 ```bash
@@ -47,7 +47,7 @@ streamlit run src/scripts/streamlit_dashboard.py
 ```
 Dashboard akan terbuka di: http://localhost:8501
 
-## 📊 Fitur Dashboard
+##  Fitur Dashboard
 
 ### Sidebar Configuration
 - **JARINGAN**: Konfigurasi topologi (nodes, connections, initial infections)
@@ -62,13 +62,13 @@ Dashboard akan terbuka di: http://localhost:8501
 4. **Heatmap**: Evolusi kerentanan per run
 5. **Data Raw**: Tabel lengkap dengan download CSV
 
-## 🎨 Design Features
+##  Design Features
 - **Dark Theme**: Warna profesional yang carefully curated
 - **Color Scheme**: 14 warna distinct tanpa overlap
 - **Responsive**: Desain yang adaptif dan interaktif
 - **Data Export**: Download hasil simulasi dalam format CSV
 
-## 📝 Parameter Simulasi
+##  Parameter Simulasi
 
 | Parameter | Range | Default | Deskripsi |
 |-----------|-------|---------|-----------|
@@ -82,7 +82,7 @@ Dashboard akan terbuka di: http://localhost:8501
 | N_STEPS | 50-500 | 200 | Durasi simulasi (steps) |
 | N_RUNS | 1-30 | 5 | Monte Carlo runs |
 
-## 📈 Output Data
+##  Output Data
 
 ### raw/
 - `data_raw_simulasi.csv`: Data mentah setiap step dari setiap run (24,000 rows)
@@ -98,7 +98,7 @@ Dashboard akan terbuka di: http://localhost:8501
 - Efektivitas intervensi
 - Heatmap kerentanan
 
-## 🔬 Model Architecture
+##  Model Architecture
 
 **NodeState Enum**
 - SUSCEPTIBLE: Rentan terhadap infeksi
@@ -112,7 +112,7 @@ Dashboard akan terbuka di: http://localhost:8501
 - Recovery: Natural recovery dengan rate γ
 - Interventions: Patch & User Training
 
-## 👨‍💻 Teknologi
+##  Teknologi
 
 - **Python 3.13**
 - **Mesa**: Agent-Based Modeling framework
@@ -121,7 +121,7 @@ Dashboard akan terbuka di: http://localhost:8501
 - **Matplotlib/Seaborn**: Visualisasi data
 - **Pandas/NumPy**: Data processing
 
-## 📚 Referensi
+##  Referensi
 
 - Mesa Framework: https://mesa.readthedocs.io/
 - Streamlit Docs: https://docs.streamlit.io/
