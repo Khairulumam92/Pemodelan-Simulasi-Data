@@ -1,5 +1,9 @@
 # Cyber Threat Simulator - Agent-Based Modeling
 
+**Author:** Moh. Khairul Umam  
+**NIM:** 202310370311448  
+**Kelas:** Pemodelan dan Simulasi Data B  
+
 Simulasi penyebaran ancaman siber melalui jaringan menggunakan Agent-Based Modeling (ABM) dengan framework Mesa. Studi kasus efektivitas intervensi Patch Management dan User Training terhadap tingkat kerentanan server.
 
 ## Struktur Proyek
